@@ -2,7 +2,70 @@
 <assets>
   <Configs name="configs">
     <Config>Configs\Default</Config>
+    <Config>Configs\farthest1</Config>
   </Configs>
+  <datafiles number="3" name="datafiles">
+    <datafile>
+      <name>farthest.html</name>
+      <exists>-1</exists>
+      <size>2871</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+        <Config name="farthest1">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>farthest.html</filename>
+    </datafile>
+    <datafile>
+      <name>index.html</name>
+      <exists>-1</exists>
+      <size>2871</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+        <Config name="farthest1">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>index.html</filename>
+    </datafile>
+    <datafile>
+      <name>farthest2.html</name>
+      <exists>-1</exists>
+      <size>2872</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+        <Config name="farthest1">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>farthest2.html</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -21,8 +84,8 @@
     <room>rooms\rm_space</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">0</constant>
-    <constant name="GM_version">0</constant>
+    <constant name="GM_build_date">41874.1894423148</constant>
+    <constant name="GM_version">'100'</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
