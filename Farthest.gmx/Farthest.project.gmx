@@ -72,22 +72,28 @@
     <sprite>sprites\spr_playerShip</sprite>
     <sprite>sprites\spr_starOne</sprite>
     <sprite>sprites\spr_infoPanel</sprite>
+    <sprite>sprites\spr_updatedPanel</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_moveStar.gml</script>
+    <script>scripts\scr_useFuelOverTime.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_pressStart</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_playerShip</object>
     <object>objects\obj_starOne</object>
     <object>objects\objInfoPanel</object>
+    <object>objects\obj_ControllerPlayerResources</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_space</room>
+    <room>rooms\rm_space_stage1</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41874.8051629167</constant>
+    <constant name="GM_build_date">41874.9595221296</constant>
     <constant name="GM_version">'100'</constant>
   </constants>
   <help>

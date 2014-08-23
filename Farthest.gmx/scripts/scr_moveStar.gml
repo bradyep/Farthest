@@ -18,4 +18,3 @@ if (vspeed < -maximumSpeed)
     vspeed = -maximumSpeed;
 if (vspeed > maximumSpeed)
     vspeed = maximumSpeed;    
-
