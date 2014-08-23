@@ -75,6 +75,9 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_moveStar.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_playerShip</object>
     <object>objects\obj_starOne</object>
@@ -84,7 +87,7 @@
     <room>rooms\rm_space</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41874.1894423148</constant>
+    <constant name="GM_build_date">41874.2054873958</constant>
     <constant name="GM_version">'100'</constant>
   </constants>
   <help>
