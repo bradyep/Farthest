@@ -5,9 +5,21 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_playerShip</sprite>
+    <sprite>sprites\spr_starOne</sprite>
+    <sprite>sprites\spr_infoPanel</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_playerShip</object>
+    <object>objects\obj_starOne</object>
+    <object>objects\objInfoPanel</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_space</room>
+  </rooms>
   <constants number="2">
     <constant name="GM_build_date">0</constant>
     <constant name="GM_version">0</constant>
