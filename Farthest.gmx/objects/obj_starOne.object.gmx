@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (x &lt; 0)
+            <string>/// Wrap Stars
+if (x &lt; 0)
     x = room_width
 if (x &gt; room_width)
     x = 0
