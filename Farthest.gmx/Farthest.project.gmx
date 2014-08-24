@@ -74,6 +74,9 @@
     <sprite>sprites\spr_infoPanel</sprite>
     <sprite>sprites\spr_updatedPanel</sprite>
     <sprite>sprites\spr_genericProfile</sprite>
+    <sprites name="SpaceStations">
+      <sprite>sprites\spr_smallSpaceStation</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -91,12 +94,16 @@
     <object>objects\obj_starOne</object>
     <object>objects\objInfoPanel</object>
     <object>objects\obj_ControllerPlayerResources</object>
+    <object>objects\obj_genericProfile</object>
+    <objects name="SpaceStations">
+      <object>objects\obj_smallSpaceStation</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_space_stage1</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41875.2409925</constant>
+    <constant name="GM_build_date">41875.7110479282</constant>
     <constant name="GM_version">'100'</constant>
   </constants>
   <help>
