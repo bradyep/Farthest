@@ -394,8 +394,18 @@ if (ary_objectives != 0)
     var i = array_length_1d(ary_objectives) - 1;
     repeat (array_length_1d(ary_objectives))
     {
+        // Display direction
         draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,
 ary_objectives[i].y);
+
+        // Display distance
+        /*
+        var deltaX = ary_objectives[i].x - obj_playerShip.x;
+        var deltaY = ary_objectives[i].y - obj_playerShip.y;
+        var ratio = deltaX / deltaY;
+        draw_text(x, y, distance_to_object(ary_objectives[i]));
+        */ 
+
         i -= 1;
     }
     
@@ -453,7 +463,7 @@ if (promptText) == glb_pressRmessage
             // instance_create(-3789,1284,obj_smallSpaceStation);
             // Make it an objective
             // ary_objectives[0] = obj_smallSpaceStation;
-            ary_objectives[0] = instance_create(-3789,1284,obj_smallSpaceStation);
+            ary_objectives[0] = instance_create(-600,900,obj_smallSpaceStation);
         break;
     }
 
