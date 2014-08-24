@@ -108,7 +108,7 @@
     <room>rooms\rm_space_stage1</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41875.9086737616</constant>
+    <constant name="GM_build_date">41875.9308426852</constant>
     <constant name="GM_version">'100'</constant>
   </constants>
   <help>
