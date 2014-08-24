@@ -51,6 +51,8 @@ obj_genericProfile.visible = false;
           <argument>
             <kind>1</kind>
             <string>/// Initialize Variables
+
+// Global Variables
 globalvar glb_pressRmessage;
 glb_pressRmessage = "&lt;&lt; PRESS R TO USE THE RADIO &gt;&gt;";
 
@@ -73,55 +75,12 @@ glb_radioDialogCounter = 0;
 globalvar glb_enterDialogCounter;
 glb_enterDialogCounter = 0;
 
+// Instance Variables
+blinkStepCounter = 0;
+promptTextVisible = true;
+ary_objectives = 0;
+
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>blinkStepCounter</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>promptTextVisible</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -411,6 +370,58 @@ draw_text(117, 570, promptText);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw lines to objectives
+if (ary_objectives != 0)
+{
+    draw_set_colour(c_lime);
+
+    var i = array_length_1d(ary_objectives) - 1;
+    repeat (array_length_1d(ary_objectives))
+    {
+        draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,
+ary_objectives[i].y);
+        i -= 1;
+    }
+    
+    /*
+    draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[0].x,
+ary_objectives[0].y);
+    */
+    
+    /*    
+    draw_line(obj_playerShip.x,obj_playerShip.y,obj_smallSpaceStation.x,
+obj_smallSpaceStation.y);
+    */
+    
+    /*
+    for (var i = array_length_1d(ary_objectives); i &gt; 0; i--;)
+    {
+        draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,
+ary_objectives[i].y);
+    }
+    */
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="10" enumb="82">
       <action>
@@ -439,7 +450,10 @@ if (promptText) == glb_pressRmessage
             obj_genericProfile.visible = true;
             promptText = glb_pressEnterMessage;
             // Create space station
-            instance_create(-3789,1284,obj_smallSpaceStation);
+            // instance_create(-3789,1284,obj_smallSpaceStation);
+            // Make it an objective
+            // ary_objectives[0] = obj_smallSpaceStation;
+            ary_objectives[0] = instance_create(-3789,1284,obj_smallSpaceStation);
         break;
     }
 
