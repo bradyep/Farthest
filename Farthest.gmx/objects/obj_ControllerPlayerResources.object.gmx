@@ -54,12 +54,112 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize Variables
+globalvar glb_pressRmessage;
+glb_pressRmessage = "&lt;&lt; PRESS R TO USE THE RADIO &gt;&gt;";
+
+globalvar glb_pressEnterMessage;
+glb_pressEnterMessage = "&lt;&lt; PRESS ENTER TO CONTINUE &gt;&gt;";
+
 globalvar stepsToUseFuelUnit;
 stepsToUseFuelUnit = 180;
 
 globalvar currentDialog;
 currentDialog = "Click on this game window. After you've done that, press R to " +
     "start up your radio and begin the game.";
+
+globalvar promptText;
+promptText = glb_pressRmessage;
+
+globalvar glb_radioDialogCounter;
+glb_radioDialogCounter = 0;
+
+globalvar glb_enterDialogCounter;
+glb_enterDialogCounter = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>blinkStepCounter</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>promptTextVisible</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="82">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Perform Radio Dialog
+if (promptText) == glb_pressRmessage
+{
+    switch(glb_radioDialogCounter)
+    {
+        case 0:
+            // Do something
+            currentDialog = "Pilot IOSJF approaching Space Station ALX8A. Proceed via radar whenever you are ready. Station is surrounded by smaller sub-stations, so approach carefully.";
+            promptText = "";
+        break;
+    }
+
+    glb_radioDialogCounter++;
+}
 
 </string>
           </argument>
@@ -311,6 +411,41 @@ if (currentDialog != "")
 {
     draw_text_ext(117, 488, currentDialog, 14, 353);
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Prompt Text
+blinkStepCounter++;
+if (blinkStepCounter &gt;= 35)
+{
+    blinkStepCounter = 0;
+    // Change color
+    promptTextVisible = !promptTextVisible;
+}
+
+if (!promptTextVisible)
+{
+    draw_set_color(c_black);
+}
+draw_text(117, 570, promptText);
 
 </string>
           </argument>
