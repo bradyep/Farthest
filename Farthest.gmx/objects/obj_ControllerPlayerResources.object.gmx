@@ -398,7 +398,39 @@ if (ary_objectives != 0)
         draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,
 ary_objectives[i].y);
 
-        // Display distance
+        // Display distance        
+        var rise = 240 - ary_objectives[i].y;
+        var run = 240 - ary_objectives[i].x;
+        var slope = rise / run;
+        
+        var circleX = 0;
+        var circleY = 0;
+        
+        // Determine which of the four sides to draw the info on
+        if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &lt; -1)
+        {
+            // draw on top border
+            circleY = 0;    // Rise = 240
+            var tempRun = -240 / slope;  // Might be -240, but I think slope handles polarity
+            circleX = 240 + tempRun;
+        }
+        if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &gt; -1 &amp;&amp; slope &lt; 1)
+        {
+            // draw on right border
+            circleX = room_width;
+            var tempRise = 240 * slope;
+            circleY = 240 + tempRise;
+        }
+        if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &gt; 1)
+        {
+            // draw on bottom border, NOT the bottom of the ROOM! 
+            circleY = 480;
+            var tempRun = circleY / slope;
+            circleX = 240 + tempRun;
+        }
+
+        draw_circle(circleX, circleY, 30, true);
+        
         /*
         var deltaX = ary_objectives[i].x - obj_playerShip.x;
         var deltaY = ary_objectives[i].y - obj_playerShip.y;
