@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_starOne" x="176" y="192" name="inst_DF18EE34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ControllerPlayerResources" x="224" y="256" name="inst_8004CB7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ControllerPlayerResources" x="244" y="240" name="inst_8004CB7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_starOne" x="128" y="128" name="inst_0C785BD8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_starOne" x="288" y="64" name="inst_073E4A0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_starOne" x="352" y="192" name="inst_610AA93A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_playerShip</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -394,9 +394,8 @@ if (ary_objectives != 0)
     var i = array_length_1d(ary_objectives) - 1;
     repeat (array_length_1d(ary_objectives))
     {
-        // Display direction
-        draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,
-ary_objectives[i].y);
+        // Display direction &lt;- Can use this for debugging if needed 
+        // draw_line(obj_playerShip.x,obj_playerShip.y,ary_objectives[i].x,ary_objectives[i].y);
 
         // Display distance        
         var rise = 240 - ary_objectives[i].y;
@@ -405,31 +404,78 @@ ary_objectives[i].y);
         
         var circleX = 0;
         var circleY = 0;
+        var distanceX = 0;
+        var distanceY = 0;
         
-        // Determine which of the four sides to draw the info on
+        // Objective on right side
+        // Determine which side to draw the info on
         if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &lt; -1)
         {
             // draw on top border
             circleY = 0;    // Rise = 240
             var tempRun = -240 / slope;  // Might be -240, but I think slope handles polarity
             circleX = 240 + tempRun;
+            distanceX = circleX - 10;
+            distanceY = circleY;
         }
         if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &gt; -1 &amp;&amp; slope &lt; 1)
         {
-            // draw on right border
+            // draw on RIGHT border
             circleX = room_width;
             var tempRise = 240 * slope;
             circleY = 240 + tempRise;
+            distanceX = circleX - 40;
+            distanceY = circleY;
         }
-        if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &gt; 1)
+        if (ary_objectives[i].x &gt;= 240 &amp;&amp; slope &gt; 1) // This needs to be whatever the slope is
+        // for the top right corner of the info panel! 
         {
             // draw on bottom border, NOT the bottom of the ROOM! 
             circleY = 480;
-            var tempRun = circleY / slope;
+            var tempRun = 240 / slope;
             circleX = 240 + tempRun;
+            distanceX = circleX - 50;
+            distanceY = circleY - 15;
+        }
+        
+        // Objective on left side
+        // Determine which side to draw the info on
+        if (ary_objectives[i].x &lt; 240 &amp;&amp; slope &gt; 1)
+        {
+            // draw on top border
+            circleY = 0;    // Rise = 240
+            var tempRun = -240 / slope;  // Might be -240, but I think slope handles polarity
+            circleX = 240 + tempRun;
+            distanceX = circleX;
+            distanceY = circleY;
+        }
+        if (ary_objectives[i].x &lt; 240 &amp;&amp; slope &gt; -1 &amp;&amp; slope &lt; 1)
+        {
+            // draw on LEFT border
+            circleX = 0;
+            var tempRise = -240 * slope;
+            circleY = 240 + tempRise;
+            distanceX = circleX;
+            distanceY = circleY;
+        }
+        if (ary_objectives[i].x &lt; 240 &amp;&amp; slope &lt; -1) // This needs to be whatever the slope is
+        // for the top right corner of the info panel! 
+        {
+            // draw on bottom border, NOT the bottom of the ROOM! 
+            circleY = 480;
+            var tempRun = 240 / slope;
+            circleX = 240 + tempRun;
+            distanceX = circleX;
+            distanceY = circleY - 15;
         }
 
-        draw_circle(circleX, circleY, 30, true);
+        var distanceTo = round(distance_to_object(ary_objectives[i]));
+        if (distanceTo &gt; 220)
+        {
+            draw_circle(circleX, circleY, 30, true);
+            // Can't use this method because obj_ControllerPlayerResources does not have a sprite? &lt;- I used a mask instead
+            draw_text(distanceX, distanceY, distanceTo + "m");
+        }
         
         /*
         var deltaX = ary_objectives[i].x - obj_playerShip.x;
